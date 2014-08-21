@@ -1,0 +1,38 @@
+<div class="container">
+	<form action="/posts" method="post" >
+		<table>
+			<tr>
+				<td><label for="title">Title</label></td>
+				<td><input type="text" name="post[title]" id="title"></td>
+			</tr>
+			<tr>
+				<td><label for="author">Author</label></td>
+				<td><input type="text" name="post[author]" id="author"></td>
+			</tr>
+			<tr>
+				<td><label for="desc">Description</label></td>
+				<td><textarea name="post[description]" id="desc" cols="30" rows="10"></textarea></td>
+			</tr>
+		</table>
+
+
+		<fieldset>
+			<div class="control-group">
+			  <label class="control-label" for="selectmultiple">Select Multiple</label>
+			  <div class="controls">
+			    <select id="selectmultiple" name="selectmultiple[]" class="input-xlarge" multiple="multiple">
+
+						<% @tags.each do |tag| %>
+					      <option><%= tag.name %></option>
+						<% end %>
+
+			    </select>
+			  </div>
+			</div>
+		</fieldset>
+
+		<%= token_tag form_authenticity_token %>
+		<button>Save</button>
+	</form>
+
+</div>

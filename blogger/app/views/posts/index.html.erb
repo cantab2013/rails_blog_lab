@@ -1,0 +1,23 @@
+<table style="border: 2px black solid; text-align: left">
+
+	<th>
+		<td>Title</td>
+		<td>Author</td>
+		<td>Tags</td>
+	</th>
+
+	<% @posts.each do |post| %>
+
+		<tr>
+			<td><%= post.title %></td>
+			<td><%= post.author %></td>
+			<td><% post.tags.each do |tag| %>
+				<ul>
+					<li><%= tag.name %></li>
+				</ul>
+			<% end %></td>
+		</tr>
+	<% end %>
+
+</table>
+
